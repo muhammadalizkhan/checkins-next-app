@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage"; // Import for Firebase Storage
-
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyBW8FNFlYSqb8byvX4RyxC8iPA5sec1kUU",
   authDomain: "checkinsapp-c3b2e.firebaseapp.com",
