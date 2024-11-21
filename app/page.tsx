@@ -40,7 +40,6 @@ export default function Page() {
       let imageBase64 = "";
   
       if (image) {
-        // Convert the image to a Base64 string
         const reader = new FileReader();
         reader.readAsDataURL(image);
         await new Promise<void>((resolve) => {
@@ -51,7 +50,6 @@ export default function Page() {
         });
       }
   
-      // Store the Base64 string in Firestore
       await addDoc(collection(db, "checkins"), {
         title,
         description,
