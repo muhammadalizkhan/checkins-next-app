@@ -37,19 +37,35 @@ export default function Page() {
 
   const handleAddCheckin = async (title: string, description: string, image: File | null) => {
     try {
-      const imageUrl = image ? URL.createObjectURL(image) : "";
+      let imageBase64 = "";
+  
+      if (image) {
+        // Convert the image to a Base64 string
+        const reader = new FileReader();
+        reader.readAsDataURL(image);
+        await new Promise<void>((resolve) => {
+          reader.onload = () => {
+            imageBase64 = reader.result as string;
+            resolve();
+          };
+        });
+      }
+  
+      // Store the Base64 string in Firestore
       await addDoc(collection(db, "checkins"), {
         title,
         description,
-        image: imageUrl,
+        image: imageBase64,
         createdAt: new Date().toLocaleDateString(),
       });
+  
       fetchCheckins();
       setOpenModal(false);
     } catch (error) {
       console.error("Error adding check-in:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchCheckins();

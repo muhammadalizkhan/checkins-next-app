@@ -28,10 +28,6 @@ const AddCheckinModal: React.FC<AddCheckinModalProps> = ({
   const [image, setImage] = useState<File | null>(null);
 
   const handleAdd = () => {
-    if (!title || !description) {
-      alert("Title and description are required!");
-      return;
-    }
     onAddCheckin(title, description, image);
     setTitle("");
     setDescription("");

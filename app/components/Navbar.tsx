@@ -20,16 +20,16 @@ const Navbar: React.FC = () => {
         <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600, color: "#333" }}>
           CheckIns
         </Typography>
-        <Button startIcon={<FeedbackIcon />} variant="text" sx={{ color: "#6200ea" }}>
+        <Button startIcon={<FeedbackIcon />} variant="text" sx={{ color: "#877b9e" }}>
           Feedback
         </Button>
-        <IconButton sx={{ color: "#6200ea" }}>
+        <IconButton sx={{ color: "#877b9e" }}>
           <NotificationsIcon />
         </IconButton>
-        <IconButton sx={{ color: "#6200ea", mr: 2 }}>
+        <IconButton sx={{ color: "#877b9e", mr: 2 }}>
           <InfoIcon />
         </IconButton>
-        <Avatar sx={{ bgcolor: "#6200ea", width: 32, height: 32 }}>JD</Avatar>
+        <Avatar sx={{ bgcolor: "#877b9e", width: 32, height: 32 }}>Admin</Avatar>
       </Toolbar>
     </AppBar>
   );
