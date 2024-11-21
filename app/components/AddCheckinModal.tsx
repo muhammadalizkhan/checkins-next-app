@@ -9,6 +9,8 @@ import {
   Typography,
   TextField,
   Button,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 
@@ -26,6 +28,9 @@ const AddCheckinModal: React.FC<AddCheckinModalProps> = ({
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState<File | null>(null);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Detect mobile screen size
 
   const handleAdd = () => {
     onAddCheckin(title, description, image);
@@ -51,11 +56,11 @@ const AddCheckinModal: React.FC<AddCheckinModalProps> = ({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 500,
+            width: isMobile ? "90%" : 500,
             bgcolor: "background.paper",
             borderRadius: "12px",
             boxShadow: 24,
-            p: 4,
+            p: isMobile ? 2 : 4,
           }}
         >
           <Typography
